@@ -1,61 +1,88 @@
-# TypeScript Next.js example
+# Planner Concursos
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+Sistema de planejamento de estudos para concursos públicos.
 
-## Deploy your own
+## Estrutura do Projeto
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+```
+planner-concursos/
+├── frontend/           # Aplicação Next.js
+│   ├── src/           # Código fonte do frontend
+│   ├── public/        # Arquivos estáticos
+│   └── ...           # Arquivos de configuração
+│
+└── api/               # API FastAPI
+    ├── app/
+    │   ├── models/    # Modelos SQLAlchemy
+    │   ├── schemas/   # Schemas Pydantic
+    │   ├── routes/    # Rotas da API
+    │   ├── services/  # Lógica de negócio
+    │   └── utils/     # Utilitários
+    ├── tests/         # Testes
+    └── alembic/       # Migrações de banco de dados
+```
 
-## How to use it?
+## Requisitos
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+### Frontend
+- Node.js >= 18
+- npm ou yarn
 
+### Backend
+- Python >= 3.8
+- PostgreSQL
+- Redis (opcional)
+
+## Configuração
+
+### Frontend
+1. Entre na pasta do frontend:
 ```bash
-npx create-next-app --example with-typescript with-typescript-app
+cd frontend
 ```
 
+2. Instale as dependências:
 ```bash
-yarn create next-app --example with-typescript with-typescript-app
+npm install
 ```
 
+3. Execute o servidor de desenvolvimento:
 ```bash
-pnpm create next-app --example with-typescript with-typescript-app
+npm run dev
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```shell
-npm install --save-dev typescript
+### Backend
+1. Entre na pasta da API:
+```bash
+cd api
 ```
 
-```shell
-yarn install --save-dev typescript
+2. Crie um ambiente virtual:
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# ou
+.\venv\Scripts\activate  # Windows
 ```
 
-```shell
-pnpm install --save-dev typescript
+3. Instale as dependências:
+```bash
+pip install -r requirements.txt
 ```
 
-To enable TypeScript's features, we install the type declarations for React and Node.
-
-```shell
-npm install --save-dev @types/react @types/react-dom @types/node
+4. Configure as variáveis de ambiente:
+```bash
+cp .env.example .env
+# Edite o arquivo .env com suas configurações
 ```
 
-```shell
-yarn install --save-dev @types/react @types/react-dom @types/node
+5. Execute o servidor de desenvolvimento:
+```bash
+uvicorn app.main:app --reload
 ```
 
-```shell
-pnpm install --save-dev @types/react @types/react-dom @types/node
-```
+## Documentação da API
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
-
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+Após iniciar o servidor da API, acesse:
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
