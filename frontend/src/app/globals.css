@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Primary Colors */
+        --color-primary-green: 46 205 112;
+        /* #2ecd70 */
+        --color-primary-blue: 42 62 80;
+        /* #2a3e50 */
+        --color-primary-white: 253 253 253;
+        /* #fdfdfd */
+
+        /* Secondary Colors */
+        --color-secondary-false-black: 59 59 59;
+        /* #3b3b3b */
+        --color-secondary-false-white: 247 247 247;
+        /* #f7f7f7 */
+        --color-secondary-light-gray: 201 201 201;
+        /* #c9c9c9 */
+
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 221.2 83.2% 53.3%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 221.2 83.2% 53.3%;
+        --radius: 0.5rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-primary-white text-secondary-false-black antialiased;
+    }
+}
